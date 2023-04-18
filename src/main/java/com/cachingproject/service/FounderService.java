@@ -34,7 +34,8 @@ public class FounderService {
     @Cacheable(cacheNames = "founder")
     public List<Founder> getFounderDetails() {
         logger.info(("Get founder details"));
-        return founderRepository.findAll();
+        List<Founder> allFounder = founderRepository.findAll();
+        return allFounder;
     }
     @CachePut(cacheNames = "founder",key = "#sNo")
     public Founder updateFounder(int sNo,Founder founder) {
